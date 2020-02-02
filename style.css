@@ -154,5 +154,14 @@
     left: 342px;
     background: url("hero_celebrate.png")
       0px 0px;
-  
+  }
+
+  #villain-sprite-image {
+    height: 82px;
+    width: 56px;
+    position: absolute;
+    bottom: 32px;
+    right: 342px;
+    background: url("villain_defeat.png")
+      0px 0px;
   }

@@ -117,9 +117,11 @@ Quiz.prototype.render = function (container) {
       message = 'Great job!'
       //Start animation
       hero_start_animation();
+      villain_start_animation()
     } else if (percentage >= .75) {
       message = 'You did alright.'
       hero_start_animation();
+      villain_start_animation()
     } else if (percentage >= .5) {
       message = 'Try Again!'
       hero_start_animation();
@@ -273,6 +275,25 @@ function hero_start_animation() {
   }, speed);
 }
 
+function villain_start_animation() {
+  let widthOfSpriteSheet = 168;
+  let widthOfEachSprite = 56;
 
-//Start animation
-// hero_start_animation();
+  let position = widthOfEachSprite; //start position for the image
+  let speed = 150; //in millisecond(ms)
+  let diff = widthOfEachSprite; //difference between two sprites
+
+  animationInterval = setInterval(() => {
+    var spriteSheet = document.getElementById("villain-sprite-image");
+
+    spriteSheet.style.backgroundPosition = `-${position}px 0px`;
+
+    if (position < widthOfSpriteSheet) {
+      position = position + diff;
+    } else {
+      //increment the position by the width of each sprite each time
+      position = widthOfEachSprite;
+    }
+    //reset the position to show first sprite after the last one
+  }, speed);
+}
