@@ -103,8 +103,7 @@ Quiz.prototype.render = function (container) {
       }
 
       $('#quiz-retry-button').click(function (reset) {
-        stop_animation()
-        quiz.render(quiz_container);
+        quiz.render(quiz-container);
       });
 
     }
