@@ -1,0 +1,58 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="script.js" type="application/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <title>Questions Grid</title>
+</head>
+<body>
+    <!-- Quiz Container -->
+    <div class=container>
+        <div id="quiz" class="quiz-container">
+            <h1 id="quiz-name"></h1>
+            <!-- <button id="submit-button">Submit Answers</button> -->
+            <button id="submit-button" type="button" class="btn btn-primary btn-lg" data-toggle="modal"
+                data-target="#quiz-results">
+                Submit Answers
+            </button>
+            <button id="next-question-button" type="button" class="btn btn-primary btn-lg">Next Question</button>
+            <button id="prev-question-button" type="button" class="btn btn-primary btn-lg">Previous</button>
+        </div>
+        <!-- The modal -->
+        <div class="modal" id="quiz-results" tabindex="-1" role="dialog" aria-labelledby="modalLabelLarge"
+            aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <button id="quiz-retry-button" type="button" class="close" data-dismiss="modal"
+                            aria-label="Close">
+                            <span aria-hidden="true">Retry</span>
+                        </button>
+                        <p id="quiz-results-message"></p>
+                    </div>
+
+                    <div class="modal-body">
+                        <p id="quiz-results-score"></p>
+                    </div>
+                    <div id="hero-sprite-container">
+                        <div id="hero-sprite-image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
