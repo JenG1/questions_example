@@ -103,7 +103,7 @@ Quiz.prototype.render = function (container) {
       }
 
       $('#quiz-retry-button').click(function (reset) {
-        stop_animation() 
+        stop_animation()
         quiz.render(quiz_container);
       });
 
@@ -119,8 +119,10 @@ Quiz.prototype.render = function (container) {
       hero_start_animation();
     } else if (percentage >= .75) {
       message = 'You did alright.'
+      hero_start_animation();
     } else if (percentage >= .5) {
       message = 'Try Again!'
+      hero_start_animation();
     } else {
       message = 'Cmon!'
     }
