@@ -1,3 +1,4 @@
+
 // Array of all the questions and choices to populate the questions. This might be saved in some JSON file or a database and we would have to read the data in.
 const all_questions = [{
   question_string: "What does HTML stand for?",
@@ -53,7 +54,7 @@ Quiz.prototype.render = function (container) {
   $('#quiz-name').text(this.quiz_name);
 
   // Create a container for questions
-  var question_container = $('<div>').attr('id', 'question').insertAfter('#quiz-name');
+  let question_container = $('<div>').attr('id', 'question').insertAfter('#quiz-name');
 
   // Helper function for changing the question and updating the buttons
   function change_question() {
@@ -101,9 +102,8 @@ Quiz.prototype.render = function (container) {
       if (self.questions[i].user_choice_index === self.questions[i].correct_choice_index) {
         score++;
       }
-
-      $('#quiz-retry-button').click(function (reset) {
-        quiz.render(quiz-container);
+      $('#quiz-retry-button').click(function () {
+        location.reload();
       });
 
     }
@@ -229,8 +229,7 @@ Question.prototype.render = function (container) {
 // "Main method" which will create all the objects and render the Quiz.
 $(document).ready(function () {
   // Create an instance of the Quiz object
-  let quiz = new Quiz('Rabbit The Fixer');
-
+  let quiz = new Quiz("Rabbit The Fixer");
   // Create Question objects from all_questions and add them to the Quiz object
   for (var i = 0; i < all_questions.length; i++) {
     // Create a new Question object
@@ -239,9 +238,8 @@ $(document).ready(function () {
     // Add the question to the instance of the Quiz object that we created previously
     quiz.add_question(question);
   }
-
   // Render the quiz
-  const quiz_container = $('#quiz');
+  let quiz_container = $(".container");
   quiz.render(quiz_container);
 });
 
