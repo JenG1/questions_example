@@ -28,6 +28,7 @@ const all_questions = [{
 
 // An object for a Quiz, which will contain Question objects.
 const Quiz = function (quiz_name) {
+  hero_idle();
   // Private fields for an instance of a Quiz object.
   this.quiz_name = quiz_name;
 
@@ -285,6 +286,26 @@ function hide_hero(hero) {
 function hide_villain(villain) {
   document.getElementById(villain).style.display='block';
   document.getElementById(villain).style.display = 'none';
+}
+function hero_idle() {
+  let widthOfSpriteSheet = 448;
+  let widthOfEachSprite = 56;
+  let position = widthOfEachSprite; //start position for the image
+  let speed = 200; //in millisecond(ms)
+  let diff = widthOfEachSprite; //difference between two sprites
+
+  animationInterval = setInterval(() => {
+    var spriteSheet = document.getElementById("hero-sprite-image-talk");
+    spriteSheet.style.backgroundPosition = `-${position}px 0px`;
+
+    if (position < widthOfSpriteSheet) {
+      position = position + diff;
+    } else {
+      //increment the position by the width of each sprite each time
+      position = widthOfEachSprite;
+    }
+    //reset the position to show first sprite after the last one
+  }, speed);
 }
 
 function hero_start_animation(hero_animation) {

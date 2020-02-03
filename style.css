@@ -184,3 +184,13 @@
     background: url("villain_celebrate.png")
       0px 0px;
   }
+
+  #hero-sprite-image-talk {
+    height: 82px;
+    width: 50px;
+    position: absolute;
+    bottom: 32px;
+    left: 342px;
+    background: url("foxy_fixer_idle_speak.png")
+      0px 0px;
+  }
