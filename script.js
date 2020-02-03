@@ -291,7 +291,7 @@ function hero_idle() {
   let widthOfSpriteSheet = 448;
   let widthOfEachSprite = 56;
   let position = widthOfEachSprite; //start position for the image
-  let speed = 200; //in millisecond(ms)
+  let speed = 400; //in millisecond(ms)
   let diff = widthOfEachSprite; //difference between two sprites
 
   animationInterval = setInterval(() => {
