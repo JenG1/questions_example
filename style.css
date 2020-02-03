@@ -148,11 +148,11 @@
 
   #hero-sprite-image {
     height: 82px;
-    width: 56px;
+    width: 53px;
     position: absolute;
     bottom: 32px;
     left: 342px;
-    background: url("hero_celebrate.png")
+    background: url("foxy_fixer_celebrate.png")
       0px 0px;
   }
 
@@ -163,5 +163,24 @@
     bottom: 32px;
     right: 342px;
     background: url("villain_defeat.png")
+      0px 0px;
+  }
+
+  #hero-sprite-defeat-image {
+    height: 82px;
+    width: 52px;
+    position: absolute;
+    bottom: 32px;
+    left: 342px;
+    background: url("foxy_fixer_defeat.png")
+      0px 0px;
+  }
+  #villain-sprite-celebrate-image {
+    height: 82px;
+    width: 56px;
+    position: absolute;
+    bottom: 32px;
+    right: 342px;
+    background: url("villain_celebrate.png")
       0px 0px;
   }

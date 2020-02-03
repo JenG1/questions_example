@@ -115,17 +115,45 @@ Quiz.prototype.render = function (container) {
     if (percentage === 1) {
       message = 'Great job!'
       //Start animation
-      hero_start_animation();
-      villain_start_animation()
+      let hero_animation = "hero-sprite-image";
+      let villain_animation = "villain-sprite-image";
+      let hero = "hero-sprite-defeat-image";
+      let villain = "villain-sprite-celebrate-image";
+      hide_hero(hero);
+      hide_villain(villain);
+      hero_start_animation(hero_animation);
+      villain_start_animation(villain_animation)
     } else if (percentage >= .75) {
       message = 'You did alright.'
-      hero_start_animation();
-      villain_start_animation()
+      let hero_animation = "hero-sprite-image";
+      let villain_animation = "villain-sprite-image";
+      let hero = "hero-sprite-defeat-image";
+      let villain = "villain-sprite-celebrate-image";
+      hide_hero(hero);
+      hide_villain(villain);
+      hero_start_animation(hero_animation);
+      villain_start_animation(villain_animation);
+
     } else if (percentage >= .5) {
       message = 'Try Again!'
-      hero_start_animation();
+      let hero_animation = "hero-sprite-defeat-image";
+      let villain_animation = "villain-sprite-image";
+      let hero = "hero-sprite-image";
+      let villain = "villain-sprite-image";
+      hero_start_animation(hero_animation);
+      villain_start_animation(villain_animation);
+      hide_hero(hero);
+      hide_villain(villain)
     } else {
       message = 'Cmon!'
+      let hero_animation = "hero-sprite-defeat-image";
+      let villain_animation = "villain-sprite-celebrate-image";
+      let hero = "hero-sprite-image";
+      let villain = "villain-sprite-image";
+      hero_start_animation(hero_animation);
+      villain_start_animation(villain_animation)
+      hide_hero(hero);
+      hide_villain(villain)
     }
     $('#quiz-results-message').text(message);
     $('#quiz-results-score').html('You got <b>' + score + '/' + self.questions.length + '</b> questions correct.');
@@ -229,7 +257,7 @@ Question.prototype.render = function (container) {
 // "Main method" which will create all the objects and render the Quiz.
 $(document).ready(function () {
   // Create an instance of the Quiz object
-  let quiz = new Quiz("Rabbit The Fixer");
+  let quiz = new Quiz("Foxy The Fixer");
   // Create Question objects from all_questions and add them to the Quiz object
   for (var i = 0; i < all_questions.length; i++) {
     // Create a new Question object
@@ -250,7 +278,16 @@ function stop_animation() {
   clearInterval(animationInterval);
 }
 
-function hero_start_animation() {
+function hide_hero(hero) {
+  document.getElementById(hero).style.display='block';
+  document.getElementById(hero).style.display = 'none';
+}
+function hide_villain(villain) {
+  document.getElementById(villain).style.display='block';
+  document.getElementById(villain).style.display = 'none';
+}
+
+function hero_start_animation(hero_animation) {
   let widthOfSpriteSheet = 448;
   let widthOfEachSprite = 56;
 
@@ -259,7 +296,7 @@ function hero_start_animation() {
   let diff = widthOfEachSprite; //difference between two sprites
 
   animationInterval = setInterval(() => {
-    var spriteSheet = document.getElementById("hero-sprite-image");
+    var spriteSheet = document.getElementById(hero_animation);
     spriteSheet.style.backgroundPosition = `-${position}px 0px`;
 
     if (position < widthOfSpriteSheet) {
@@ -272,7 +309,7 @@ function hero_start_animation() {
   }, speed);
 }
 
-function villain_start_animation() {
+function villain_start_animation(villain_animation) {
   let widthOfSpriteSheet = 168;
   let widthOfEachSprite = 56;
 
@@ -281,7 +318,7 @@ function villain_start_animation() {
   let diff = widthOfEachSprite; //difference between two sprites
 
   animationInterval = setInterval(() => {
-    var spriteSheet = document.getElementById("villain-sprite-image");
+    var spriteSheet = document.getElementById(villain_animation);
 
     spriteSheet.style.backgroundPosition = `-${position}px 0px`;
 
